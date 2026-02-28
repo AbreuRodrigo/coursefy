@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coursefy</title>
+  <link rel="icon" type="image/png" href="/assets/coursefy.png" />
+  <link rel="stylesheet" href="/player/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbarInner">
+      <div class="brand">
+        <div class="brandLine">
+          <img class="brandIcon" src="/assets/coursefy.png" alt="" />
+          <div class="brandTitle">Coursefy</div>
+        </div>
+        <div class="brandSub" id="brandSub">Loading...</div>
+      </div>
+
+      <div class="topbarActions">
+        <button id="backBtn" type="button" class="btnGhost" hidden>All courses</button>
+        <button id="addCourseBtn" type="button" class="btn">Add course</button>
+        <input id="filter" class="search" type="text" placeholder="Search lessons..." hidden />
+        <button id="reloadBtn" type="button" class="btn" hidden>Reload</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="lobbyMain" id="lobbyView">
+    <section class="lobbyCard">
+      <div class="lobbyHead">
+        <div class="lobbyTitle">Your courses</div>
+        <div class="lobbyMeta" id="lobbyMeta"></div>
+      </div>
+
+      <div class="lobbyEmpty" id="lobbyEmpty" hidden>
+        <div class="lobbyEmptyTitle">No courses added yet</div>
+        <div class="lobbyEmptyText">Click <strong>Add course</strong> and choose a local course folder.</div>
+      </div>
+
+      <div class="error" id="lobbyErr"></div>
+      <div class="coursesGrid" id="coursesGrid"></div>
+    </section>
+  </main>
+
+  <main class="main" id="courseView" hidden>
+    <section class="playerCol">
+      <div class="playerCard">
+        <div class="playerTop">
+          <div class="nowPlayingLabel">Now playing</div>
+          <div class="nowPlayingTitle" id="nowTitle">Select a lesson</div>
+          <div class="nowPlayingMeta" id="nowMeta"></div>
+
+          <div class="playerActions">
+            <button id="markDoneBtn" class="btnGhost" type="button" disabled>Mark watched</button>
+            <button id="clearBtn" class="btnGhost" type="button" disabled>Clear progress</button>
+          </div>
+        </div>
+
+        <div class="videoWrap">
+          <video id="player" controls preload="metadata"></video>
+        </div>
+
+        <div class="playerBottom">
+          <div class="resumeHint" id="resumeHint"></div>
+          <div class="progressLine" id="progressLine"></div>
+        </div>
+      </div>
+
+      <div class="error" id="err"></div>
+    </section>
+
+    <aside class="listCol">
+      <div class="listCard">
+        <div class="listHeader">
+          <div class="listTitle">Curriculum</div>
+          <div class="listStats" id="stats"></div>
+        </div>
+
+        <div class="listBody" id="out"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/player/app.js"></script>
+</body>
+</html>
